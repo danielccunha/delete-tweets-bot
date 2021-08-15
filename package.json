@@ -1,0 +1,19 @@
+{
+  "name": "delete-tweets-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:danielccunha/delete-tweets-bot.git",
+  "author": "Daniel Cunha <danielcunha54@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "14"
+  },
+  "scripts": {
+    "run:delete": "tsnd --quiet --respawn --transpile-only --ignore-watch node_modules src/delete-tweets.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
