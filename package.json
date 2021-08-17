@@ -9,7 +9,8 @@
     "node": "14"
   },
   "scripts": {
-    "run:delete": "ts-node --transpile-only src/delete-tweets.ts"
+    "delete:api": "ts-node --transpile-only src/delete-with-api.ts",
+    "delete:archive": "ts-node --transpile-only src/delete-with-archive.ts"
   },
   "devDependencies": {
     "@types/node": "^16.6.1",

@@ -1,13 +1,13 @@
+import 'dotenv/config'
 import chalk from 'chalk'
 import dayjs from 'dayjs'
 
-import 'dotenv/config'
 import { MAXIMUM_DATE, USERNAME } from './config'
 import { loadTweets, removeTweet } from './twitter'
 
 async function execute() {
   try {
-    const resource = 'like'
+    const resource = 'tweet'
     console.log(`Loading tweets to delete from username ${USERNAME}`)
     let tweets = await loadTweets(resource)
 
