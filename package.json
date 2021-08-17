@@ -9,10 +9,11 @@
     "node": "14"
   },
   "scripts": {
-    "run:delete": "tsnd --quiet --respawn --transpile-only --ignore-watch node_modules src/delete-tweets.ts"
+    "run:delete": "ts-node --transpile-only src/delete-tweets.ts"
   },
   "devDependencies": {
     "@types/node": "^16.6.1",
+    "@types/twitter": "^1.7.1",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "eslint": "^7.32.0",
@@ -24,7 +25,13 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^5.1.0",
     "prettier": "^2.3.2",
-    "ts-node-dev": "^1.1.8",
+    "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "twitter": "^1.7.1"
   }
 }
