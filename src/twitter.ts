@@ -55,6 +55,10 @@ export async function loadTweets(resource: Resource): Promise<Tweet[]> {
 }
 
 export async function removeTweet(resource: Resource, tweet: Tweet) {
-  const endpoint = resource === 'tweet' ? 'statuses/destroy' : 'favorites/destroy'
-  await twitter.post(endpoint, { id: tweet.id_str })
+  try {
+    const endpoint = resource === 'tweet' ? 'statuses/destroy' : 'favorites/destroy'
+    await twitter.post(endpoint, { id: tweet.id_str })
+  } catch (error) {
+    console.log(`Failed to remove ${resource} ${chalk.red(tweet.id)}`)
+  }
 }

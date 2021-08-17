@@ -7,7 +7,7 @@ import { loadTweets, removeTweet } from './twitter'
 
 async function execute() {
   try {
-    const resource = 'tweet'
+    const resource = 'like'
     console.log(`Loading tweets to delete from username ${USERNAME}`)
     let tweets = await loadTweets(resource)
 
@@ -16,10 +16,8 @@ async function execute() {
     tweets = tweets.filter(tweet => dayjs(tweet.created_at).isBefore(MAXIMUM_DATE))
     console.log(`Found ${chalk.blue(tweets.length)} tweets to delete`)
 
-    for (const tweet of tweets) {
-      console.log(`Removing tweet ${chalk.red(tweet.id)}`)
-      await removeTweet(resource, tweet)
-    }
+    const promises = tweets.map(tweet => removeTweet(resource, tweet))
+    await Promise.all(promises)
   } catch (error) {
     console.error(error)
   }
